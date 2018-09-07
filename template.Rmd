@@ -1,6 +1,6 @@
 ---
 title: "STAT XXX HW 1"
-author: "Alex Hayes"
+author: "Your Name Here"
 date: "`r Sys.Date()`"
 output: pdf_document
 header-includes:

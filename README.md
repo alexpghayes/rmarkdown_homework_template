@@ -1,7 +1,7 @@
 ## An rmarkdown template for stats homework
 
 Additional recommendations:
-  - Create an R project for the class
+  - Create an RStudio project for the class
   - Keep each assignment in a separate folder
   - Have a separate folder for:
     - `data`

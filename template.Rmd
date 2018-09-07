@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 library(tidyverse)       # load libraries you always use here
 library(tidymodels)
 library(knitr)           # require for purl function to create code appendix
-library(hayeslib)        # i highly recommend creating a personal R package
+# library(hayeslib)      # i highly recommend creating a personal R package
                          # with code you use a lot and loading it here as well
 
 set.seed(27)             # make random results reproducible
@@ -54,7 +54,7 @@ au %>%
 Yet more text, and another code section:
 
 ```{r}
-kable(select(au, 1:5))
+kable(head(select(au, 1:5)))
 ```
 
 # Code

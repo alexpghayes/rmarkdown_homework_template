@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   echo = FALSE,          # don't show code
   warning = FALSE,       # don't show warnings
   message = FALSE,       # don't show messages (less serious warnings)
-  cache = TRUE,          # save results from last compilation
+  cache = FALSE,         # set to TRUE to save results from last compilation
   fig.align = "center"   # center figures
 )
 
@@ -34,10 +34,28 @@ this_file <- "template.Rmd"  # used to automatically generate code appendix
 - The `header-includes` portion loads a personal sheet of LaTeX macros. I recommend making one of these as well as it can greatly speed up the time to input math. See my personal macro file `hayesmacros.sty` as a starting point. If you aren't going to load a \LaTeX macro file, remove those lines.
     - `hayesmacros.sty` needs to be in the same folder as this file
 
-
 # Problem 1
 
 Your homework goes here
+
+Briefly, some of the custom latex macros: $y = \b x + \e$. Also, some code:
+
+```{r}
+fit <- lm(hp ~ ., mtcars)
+au <- broom::augment(fit)
+
+au %>% 
+  gather(x, val, -contains(".")) %>% 
+  ggplot(aes(val, .resid)) + 
+  geom_point() + 
+  facet_wrap(~x, scales = "free")
+```
+
+Yet more text, and another code section:
+
+```{r}
+kable(select(au, 1:5))
+```
 
 # Code
 

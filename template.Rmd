@@ -1,0 +1,46 @@
+---
+title: "STAT XXX HW 1"
+author: "Alex Hayes"
+date: "`r Sys.Date()`"
+output: pdf_document
+header-includes:
+  - \usepackage{hayesmacros}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,          # don't show code
+  warning = FALSE,       # don't show warnings
+  message = FALSE,       # don't show messages (less serious warnings)
+  cache = TRUE,          # save results from last compilation
+  fig.align = "center"   # center figures
+)
+
+library(tidyverse)       # load libraries you always use here
+library(tidymodels)
+library(knitr)           # require for purl function to create code appendix
+library(hayeslib)        # i highly recommend creating a personal R package
+                         # with code you use a lot and loading it here as well
+
+set.seed(27)             # make random results reproducible
+
+this_file <- "template.Rmd"  # used to automatically generate code appendix
+```
+
+## Notes on the YAML header
+
+- Be sure to change the title and author fields
+- The date is automatically set to the current day when knitting
+- The `header-includes` portion loads a personal sheet of LaTeX macros. I recommend making one of these as well as it can greatly speed up the time to input math. See my personal macro file `hayesmacros.sty` as a starting point. If you aren't going to load a \LaTeX macro file, remove those lines.
+    - `hayesmacros.sty` needs to be in the same folder as this file
+
+
+# Problem 1
+
+Your homework goes here
+
+# Code
+
+```{r code = readLines(purl(this_file, documentation = 1)), echo = T, eval = F}
+# this R markdown chunk generates a code appendix
+```

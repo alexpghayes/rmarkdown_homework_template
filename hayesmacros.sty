@@ -1,0 +1,172 @@
+\ProvidesPackage{hayesmacros}[2017/09/16 macros for personal use]
+\RequirePackage{amsmath, amsfonts, amsthm, mathtools, graphicx}
+
+% GENERAL environments
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{lemma}{Lemma}
+
+\newtheorem*{prop}{Proposition}
+\newtheorem*{claim}{Claim}
+\newtheorem*{example}{Example}
+
+\theoremstyle{definition}
+\newtheorem*{defin}{Definition}
+\newtheorem*{notation}{Notation}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% ALGEBRA SHORTCUTS mostly from MATH 306
+
+% \newcommand \gcd {\mathrm{gcd}}
+\newcommand{\gen}[1]{\ensuremath{\langle #1\rangle}}
+
+% ANALYSIS SHORTCUTS, mostly from MATH 322
+
+\newcommand \f [1] [x] {f(#1)}
+\newcommand \fn [1] [x] {f_n(#1)}
+\newcommand \fm [1] [x] {f_m(#1)}
+\newcommand \gn [1] [x] {g_n(#1)}
+
+\newcommand \an {a_n}
+\newcommand \bn {b_n}
+
+\newcommand \R {\mathbb{R}}
+\newcommand \Rn {\mathbb{R}^n}
+\newcommand \Q {\mathbb{Q}}
+\newcommand \Z {\mathbb{Z}}
+\newcommand \Zp {\mathbb{Z}^+}
+\newcommand \cL {\mathcal{L}}
+
+% CALCULUS SHORTCUTS
+
+\newcommand \dx {\, \mathrm{d}x}
+\newcommand \grad {\nabla}
+\newcommand \ptl {\partial}
+\newcommand \dth {\frac{\ptl}{\ptl \th}}
+\newcommand \idth {\, \mathrm{d} \th}
+\newcommand \ddth {\frac{\ptl^2}{\ptl \th^2}}
+\newcommand \pto {\propto}
+\renewcommand \. {\cdot}
+\newcommand \x {\times}
+\newcommand \half {\frac 1 2}
+\newcommand \trans {{}^T}
+\newcommand \inv {{}^{-1}}
+\newcommand \aeq {\thickapprox}
+
+% PROBABILITY SHORTCUTS, mostly from STAT 525
+
+% TODO: common distributions, distributional params
+\newcommand \E [1] {\mathbb{E} \paren*{#1}}
+\newcommand \V [1] {\mathbf{Var} \paren*{#1}}
+\newcommand \Cov [2] {\mathbf{Cov} \paren*{#1, #2}}
+\newcommand \Cor [2] {\mathbf{Cor} \paren*{#1, #2}}
+
+
+\newcommand \N [2] {\mathrm{N} \paren*{#1, #2}}
+
+\newcommand \h [1] {\mathcal{H}_{#1}}
+\newcommand \BF {\mathrm{BF}}
+
+\newcommand \PoissonD [1] {\mathrm{Poisson} \paren*{#1}}
+\newcommand \UniformD [2] {\mathrm{Uniform} \paren*{#1, #2}}
+\newcommand \BetaD [2] {\mathrm{Beta} \paren*{#1, #2}}
+\newcommand \BernD [1] {\mathrm{Bernoulli} \paren*{#1}}
+\newcommand \ExpD [1] {\mathrm{Exp} \paren*{#1}}
+\newcommand \GammaD [2] {\mathrm{Gamma} \paren*{#1, #2}}
+\newcommand \InvGammaD [2] {\mathrm{InvGamma} \paren*{#1, #2}}
+\newcommand \BinomD [2] {\mathrm{Binomial} \paren*{#1, #2}}
+\newcommand \NegBinomD [2] {\mathrm{NegBinom} \paren*{#1, #2}}
+\newcommand \NormalD [2] {\mathrm{Normal} \paren*{#1, #2}}
+\newcommand \MVND [2] {\mathrm{MVN} \paren*{#1, #2}}
+\newcommand \HalfCauchyD [2] {\mathrm{C}^+ \paren*{#1, #2}}
+
+% parameterized in terms of variance, not standard deviation!
+\newcommand \NormalPDF [3] {\frac{1}{\sqrt{2 \pi #3}} \exp \paren*{-\frac{\paren*{#1 - #2}^2}{2 #3}}}
+\newcommand \CenteredNormalPDF [2] {\frac{1}{\sqrt{2 \pi #2}} \exp \paren*{-\frac{#1^2}{2 #2}}}
+\newcommand \MVNPDF [3] {\vert 2 \pi #3 \vert^{-\half} \exp \paren*{\paren*{#1 - #2}^T {#3}^{-1} \paren*{#1 - #2}}}
+\newcommand \CenteredMVNPDF [2] {\vert 2 \pi #2 \vert^{-\half} \exp \paren*{#1^T {#2}^{-1} #1}}
+
+\newcommand \GammaPDF [3] {\frac{\paren*{#3}^{#2}}{\Gamma \paren*{#2}} {#1}^{#2 - 1} \exp \paren*{-#3 #1}}
+
+
+% equations
+\def \be #1\ee {\begin{align} #1 \end{align}}
+
+% indexing variable
+\renewcommand \ij {i}
+
+% delimiters
+\DeclarePairedDelimiter{\paren}{(}{)}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1, #2}
+
+
+
+% probability related, following BDA3 (Gelman) notation mostly
+\newcommand \p {p \paren}
+\newcommand \logp {\log p \paren}
+
+\newcommand \post {\th \vert y}
+\newcommand \llh {y \condth}
+\newcommand \pred {\yt \vert y}
+
+\newcommand \pprior {\p \th}
+\newcommand \pllh {\p {y \condth}}
+\newcommand \ppost {\p {\th \condy}}
+\newcommand \ppred {\p {\yt \condy}}
+
+\newcommand \logppost {\logp {\post}}
+\newcommand \logpprior {\logp \th}
+\newcommand \logpllh {\logp {\llh}}
+
+\newcommand \obs [1] [y] {{#1}_\ij}
+\newcommand \samp [1] [y] {{#1}_1, ..., {#1}_n}
+
+\newcommand \cond {\vert}
+\newcommand \condth {\vert \th}
+\newcommand \condy {\vert y}
+\newcommand \condobs [1] [y] {{#1}_\ij \condth}
+\newcommand \condsamp [1] [y] {{#1}_1, ..., {#1}_n \condth}
+
+\newcommand \dist {\sim}
+\newcommand \diid {\stackrel{\mathrm{iid}}{\sim}}
+\newcommand \dind {\stackrel{\mathrm{indep}}{\sim}}
+
+\newcommand \yt {\tilde{y}}
+\newcommand \yrep {y^\mathrm{rep}}
+\newcommand \yhat {\hat{y}}
+\newcommand \thhat {\hat{\th}}
+\newcommand \tauy {\tau_y}
+
+% things that go from 1 to n
+\newcommand \nsum {\sum_{\ij=1}^n}
+\newcommand \nprod {\prod_{\ij=1}^n}
+\newcommand \tsum {\sum_{\ij=1}^t}
+
+\newcommand \isum {\sum_{\ij=1}^\infty}
+\newcommand \iprod {\prod_{\ij=1}^\infty}
+
+% greek shortcuts
+\renewcommand \a {\alpha}
+\renewcommand \b {\beta}
+\newcommand \g {\gamma}
+\renewcommand \G {\Gamma}
+\newcommand \de {\delta}
+\newcommand \De {\Delta}
+\newcommand \e {\epsilon}
+\newcommand \ve {\varepsilon}
+\renewcommand \l {\lambda}
+\renewcommand \L {\Lambda}
+\renewcommand \r {\rho}
+\newcommand \vf {\varphi}
+\newcommand \s {\sigma}
+\newcommand \w {\omega}
+\renewcommand \O {\Omega}
+\renewcommand \th {\theta}
+\newcommand \ka {\kappa}
+\newcommand \z {\zeta}

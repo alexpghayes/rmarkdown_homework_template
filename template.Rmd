@@ -3,6 +3,7 @@ title: "STAT XXX HW 1"
 author: "Your Name Here"
 date: "`r Sys.Date()`"
 output: pdf_document
+urlcolor: blue
 header-includes:
   - \usepackage{hayesmacros}
 ---
@@ -18,13 +19,10 @@ knitr::opts_chunk$set(
 
 library(tidyverse)       # load libraries you always use here
 library(tidymodels)
-library(knitr)           # require for purl function to create code appendix
 # library(hayeslib)      # i highly recommend creating a personal R package
                          # with code you use a lot and loading it here as well
 
 set.seed(27)             # make random results reproducible
-
-this_file <- "template.Rmd"  # used to automatically generate code appendix
 ```
 
 ## Notes on the YAML header
@@ -36,7 +34,7 @@ this_file <- "template.Rmd"  # used to automatically generate code appendix
 
 # Problem 1
 
-Your homework goes here
+Here is a [link](https://adv-r.hadley.nz/). Your homework goes here.
 
 Briefly, some of the custom latex macros: $y = \b x + \e$. Also, some code:
 
@@ -54,11 +52,11 @@ au %>%
 Yet more text, and another code section:
 
 ```{r}
-kable(head(select(au, 1:5)))
+knitr::kable(head(select(au, 1:5)))
 ```
 
 # Code
 
-```{r code = readLines(purl(this_file, documentation = 1)), echo = T, eval = F}
+```{r ref.label = knitr::all_labels(), echo = TRUE, eval = FALSE}
 # this R markdown chunk generates a code appendix
 ```

@@ -9,3 +9,6 @@ Additional recommendations:
 
 I tend to keep the LaTeX macro file at the top level so I only have a single copy.
 
+## What the current template looks like
+
+![](figures/screenshot.png)

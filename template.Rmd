@@ -2,25 +2,25 @@
 title: "STAT XXX HW 1"
 author: "Your Name Here"
 date: "`r Sys.Date()`"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    highlight: tango
 urlcolor: blue
-header-includes:
-  - \usepackage{hayesmacros}
+header-includes: \usepackage{hayesmacros}
 ---
 
 ```{r include = FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE,          # don't show code
-  warning = FALSE,       # don't show warnings
-  message = FALSE,       # don't show messages (less serious warnings)
-  cache = FALSE,         # set to TRUE to save results from last compilation
-  fig.align = "center"   # center figures
+  echo = FALSE,                 # don't show code
+  warning = FALSE,              # don't show warnings
+  message = FALSE,              # don't show messages (less serious warnings)
+  cache = FALSE,                # set to TRUE to save results from last compilation
+  fig.align = "center",         # center figures
+  attr.source = '.numberLines'  # add line numbers to code
 )
 
 library(tidyverse)       # load libraries you always use here
-library(tidymodels)
-# library(hayeslib)      # i highly recommend creating a personal R package
-                         # with code you use a lot and loading it here as well
 
 set.seed(27)             # make random results reproducible
 ```
